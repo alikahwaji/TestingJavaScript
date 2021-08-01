@@ -50,6 +50,7 @@ describe('calculator.js', function() {
     expect(calculator).toBeTruthy()
     expect(calculator2).toBeTruthy()
     expect(calculator).toEqual(calculator2)
+    expect(calculator.constructor.name).toContain('Calculator')
     
   })
   it('has instantiated unique object', function () {
@@ -73,4 +74,28 @@ describe('calculator.js', function() {
 
     expect(calculator.total).toBeNull()
   })
+  it('Dose not handle NaN', function () {
+    const calculator = new Calculator()
+    calculator.total = 20
+    calculator.multiply('ali')
+
+    expect(calculator.total).toBeNaN()
+  })
+  it('Handles divide by zero', function () {
+    const calculator = new Calculator()
+    calculator.total = 20
+    
+    expect(function () { calculator.divide(0) }).toThrow()
+    expect(function () { calculator.divide(0) }).toThrowError(Error)
+    expect(function () { calculator.divide(0) }).toThrowError(Error, 'Cannot divide by zero')
+  })
+  it('Returns total', function () {
+    const calculator = new Calculator()
+    calculator.total = 50
+
+    expect(calculator.add(20)).toBe(70)
+    expect(calculator.total).toMatch(/-?\d+/)
+    expect(typeof calculator.total).toMatch('number')
+  })
+
 })
