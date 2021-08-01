@@ -35,11 +35,42 @@ describe('calculator.js', function() {
     const calculator = new Calculator()
 
     expect(calculator.total).toBe(0)
+    expect(calculator.total).toBeFalsy()
   })
   it('has constructor', function () {
     const calculator = new Calculator()
     const calculator2 = new Calculator()
 
     expect(calculator).toEqual(calculator2)
-    })
+  })
+  it('has instantiated', function () {
+    const calculator = new Calculator()
+    const calculator2 = new Calculator()
+
+    expect(calculator).toBeTruthy()
+    expect(calculator2).toBeTruthy()
+    expect(calculator).toEqual(calculator2)
+    
+  })
+  it('has instantiated unique object', function () {
+    const calculator = new Calculator()
+    const calculator2 = new Calculator()
+
+    expect(calculator).not.toBe(calculator2)
+  })
+  it('has common operations', function () {
+    const calculator = new Calculator()
+
+    expect(calculator.add).not.toBeUndefined()
+    expect(calculator.subtract).not.toBeUndefined()
+    expect(calculator.multiply).not.toBeUndefined()
+    expect(calculator.divide).not.toBeUndefined()
+  })
+
+  it('overwrite value', function () {
+    const calculator = new Calculator()
+    calculator.total = null
+
+    expect(calculator.total).toBeNull()
+  })
 })
