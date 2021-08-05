@@ -44,9 +44,11 @@ describe('calculator.js', function() {
     expect(calculator).toEqual(calculator2)
   })
   it('has instantiated', function () {
+    jasmine.addMatchers(customMatchers)
     const calculator = new Calculator()
     const calculator2 = new Calculator()
 
+    expect(calculator).toBeCalculator()
     expect(calculator).toBeTruthy()
     expect(calculator2).toBeTruthy()
     expect(calculator).toEqual(calculator2)
