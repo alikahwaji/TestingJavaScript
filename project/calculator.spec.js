@@ -49,6 +49,7 @@ describe('calculator.js', function() {
     const calculator2 = new Calculator()
 
     expect(calculator).toBeCalculator()
+    expect(2).not.toBeCalculator()
     expect(calculator).toBeTruthy()
     expect(calculator2).toBeTruthy()
     expect(calculator).toEqual(calculator2)

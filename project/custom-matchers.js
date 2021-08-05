@@ -8,7 +8,7 @@ const customMatchers = {
         }
 
         if (result.pass) {
-          //TODO
+          result.message = 'Expected ' + actual + 'not to be instance of calculator'
         } else {
           result.message = 'Expected ' + actual + ' to be a calculator'
         }
